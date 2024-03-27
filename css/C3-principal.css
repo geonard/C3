@@ -1,0 +1,87 @@
+
+:root {
+  /* charte des couleurs */
+    --border-debug: 0px; /* super debug pour localiser les balises */
+    --marge-debug: 5px;
+    --rouge: #ff4848; 
+    --noir: #232628; 
+    --blanc: #ffffff; 
+    --orange: #fab637; 	
+    --orange-entete: #c68917; 
+    --marron : #cc6119; 
+    --bleu : #6c98e1;
+  /* t1_header */
+    --marge-top: 0px;
+    --marge-left: 100px;
+    --marge-right: 100px;
+      /* taille police */
+    --f-s-primary0: 19px;
+    --f-s-primary: 16px;
+    --f-s-secondary: 12px;
+    --f-s-tertiary: 11px;
+  /* t2_header_menu */
+    --f-s-a2-primary: 20px;}
+
+    .header {
+      height:auto;
+      background:black;
+    }
+    
+/* ****************  Id général Lorem  ***********************************************/
+.id_Lorem {   
+  color: var(--noir); font-weight: bold;  padding-left : 10px; font-size:10px; margin-top:30px;
+  text-align:top; top:0; margin-top:0; padding-top:0; background-color: white; border-top:0; margin:0;
+  }  
+  .id_Lorem-white { color: var(--blanc); }  
+  .iconContacts{ height:50px; width:60px;}
+  .iconGAFAM{ height:20px; width:20px;}
+  /* *******************  a ************************************************************/
+  .header { z-index:1; 
+    height:auto;
+    background:var(--noir);
+  margin-left:100px; margin-right:100px; margin-top:100px;}
+  .header  td {background:var(--noir);}
+  .header h1 { font-size:40px; }
+
+  .footer {background:var(--noir); color:var(--blanc);}
+
+body {margin-left:100px; margin-right:100px; margin-top:100px; }
+h1  {
+      font-size: 50px;
+      color: var(--blanc);
+      padding-bottom: 0px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: "MontSerrat";}
+h2 { font-size:25px;color:var(--orange-entete); }
+h3 { font-size:17px; color:var(--blanc);}
+h4 { font-size:20px; color:var(--blanc); font-weight: bold;}
+h5 { font-size:25px; color:var(--orange-noir);}
+
+
+/* ****************  h1 ..6 MOBILE   *************************************************/
+@media (max-width : 320px) {
+h1 { font-size: 70px;}
+h2 { font-size:25px;}
+h3 { font-size:17px;}
+h4 { font-size:11px;}
+h5 { font-size:25px; }}
+
+@media screen and (max-width:768px) {
+  h2 { font-size:50px;}
+  h3 { font-size:17px;}
+  h4 { font-size:11px;}
+  h5 { font-size:25px; }}
+
+	
+ 
+/* **************** CSS général  ***********************************************/
+@namespace url(http://www.w3.org/TR/2008/REC-xml-20081126/);
+@font-face {
+  font-family: MontSerrat;
+  src:
+    local(Montserrat, Open_Sans),
+  url(Montserrat-ExtraBold.ttf) format("ttf"),
+  url(Open_Sans.ttf) format("ttf");}
+
+
