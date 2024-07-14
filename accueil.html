@@ -1,0 +1,612 @@
+
+<!--  ==================================== DOCUMENTATION  =================================================
+  
+Info: Pour modifier ce programme, modifier --border-debug avec par exemple 5px !important
+
+  Le cahier des charges du site club auto est divisé en plusieurs pages pdf  accueil, vente, location, contact.
+Chaque page est divisée en plusieurs blocs à identifier.
+
+Nous reprenons ces blocs et pages en les transformons en pages HTML5 pour constituer le site.
+Prenons en  exemple la page Accueil qui est composé des blocs suivants :
+- le bloc entête (contact, horaires, Tel, ..),
+- le bloc photo véhicule1.jpg avec un menu principal intégré dans la photo en opacité,
+- le bloc bannière (club auto le meilleur de l'automobile),
+- etc.
+
+  _______________________________________  GERER LA COMPLEXITE avec une  ANALYSE AVANCEE DU PDF __________
+
+1) Repérer les titres de dimensions équivalentes. Ensuite les recoder en <h1> .. <h6>
+  
+2) Identifier les polices utilisées. 
+  
+ 3) Remarquer qu'il y a 2 bandes marginales une noire et une blanche. 
+       Une solution possible est un background body en noir. Plus une marge une marge background en blanc. 
+  
+4) Remarquer que le footer des images jpg "Shutterstock" données par le  CDC sont masquées. 
+
+5) Remarquer un menu principal en opacité imbriqué sur une image. 
+
+6) Il manque la photo de la femme en chapeau en jpg dans le CDC ? Mais il y a la même phota dans un .png du CDC.
+Il suffit de découper la partie intéressante et  la réintégrer dans le projet.
+
+
+Quand on a observé ces problématiques, on peut envisager d'évaluer les besoins et les risques.
+
+
+  _______________________________________  REGLES DE NOMMAGE    ________________________________________________ 
+  
+Chaque page a un référetiel comme <a> pour "accueil", <v> pour "vente", <c> pour "contact"
+number_bloc: nombre de l'élément de la page
+number_td: nommbre de la cellule
+<a>number<->                                                                   => .a1- en css
+            "numéro du bloc <a>"
+<v>number<->nom<-td->numer<-p>number                 => .v1_head-td2-p1 en css
+            "premier paragrahe de la deuxièeme cellule du block head de v1"
+
+
+  _______________________________________  ASTUCES DEBUG    ______________________________________________________ 
+
+1) Mise en place d'un ou plusieurs border sur les balises sensibles (voir variable --border-debug dans CSS)
+      Il suffit de mettre --border-debug: 0px; pour qu'elles deviennet invisibles.
+
+2) Utilisation de Javascript pour trouver les dimensions des balises.
+
+3) etc.  
+
+  _______________________________________  RECOMMANDATIONS    _________________________________________________
+
+Il est fortemenent recommandé d'installer un deuxième écran sur le PC pour les vérifictions entre PDF et HTML.
+Il faut configurer votre besion sur chaque écran avec un navigateur, c'est  très simple.
+Exemple: 
+- Navigteur1 pour développer code
+- Navigteur2 pour voir le résultat du code
+- Navigteur 3 pour TV ou accès Internet
+
+
+-->
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CLUB AUTO</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!--<sript src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>-->
+  <script src="https://www.w3schools.com/lib/w3.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+  </script>
+  
+
+  <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+ 
+    <link href="css/C3-principal.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    table {
+ border-width:1px; 
+ border-style:solid; 
+ border-color:black;
+ width:50%;
+ }
+ .table tbody th::before,
+.table tbody td::before {
+    content: attr(data-thead) ' ';
+}
+td { 
+ border-width:1px;
+ border-style:solid; 
+ border-color:red;
+ padding-top:15px;padding:20px;
+ width:50%;
+ }
+/* ============ classes a  ===================================== */
+.id_lorem {  
+  text-align: start;
+  font-weight: bold;  
+  top:0; margin-top:0; padding-top:0; color: white; 
+  }  
+  .header { height:300px;
+  background:var(--noir);}
+
+  .a1_menu {
+    position:absolute;
+  height:800px;
+<<<<<<< HEAD
+  top:200px;}
+=======
+  top:2px;}
+>>>>>>> 88ff3652398cc1500e0d56a53472d36539975442
+  .a1_menu a {
+  border: var(--border-debug) solid green; 
+  color: black; 
+  text-decoration: none;}
+.a1_menu a:hover { background-color: var(--rouge); }
+
+.a2_pub {  position:absolute; top:300px;  margin-right:100px; height:100px; background:var(--noir); border:1px solid black;}
+
+.a2_entretien_clients {position:absolute; top:400px;background:white;}
+  /*.a1_menu div {background-image:url("images/vehicule1.jpg");}*/
+
+.icon-nous-choisir  {width:50px; height:50px; }
+
+.nav-link :active {background-color:rgb(218, 117, 243);}
+.nav-link :hover {background-color:rgb(117, 172, 243);}
+ /*.navbar-toggler :hover  { background-color: yellow;color:yellow; }*/
+.navbar-toggler :active  {color:red; }
+.navbar-toggler {color: rgb(128, 139, 200); font-size:50px;}
+.navbar-toggle{
+  width: 100px;
+  height:100px;
+}
+.visibledevice   {display:none  !important;}
+
+@media (max-width : 320px) {  /*no run */
+.nav-bar {background-color:black; color:white;}
+/*.visibledevice   {display:block  !important;}
+<<<<<<< HEAD
+.visibledevice  {display:unset;}
+
+.bricks-mobile-menu-toggle {
+display: none !important;*/
+=======
+.visibledevice  {display:unset;}*/
+
+.bricks-mobile-menu-toggle {
+display: none !important;
+>>>>>>> 88ff3652398cc1500e0d56a53472d36539975442
+}
+h1 { font-size: 70px;}
+h2 { font-size:25px;}
+h3 { font-size:17px;}
+h4 { font-size:11px;}
+h5 { font-size:25px; }
+}
+
+@media screen and (max-width:768px) {
+  .a4_chapeau_cadre_1 {left:0;}
+<<<<<<< HEAD
+.header {display:none;}
+=======
+  .header  {display:none;}
+>>>>>>> 88ff3652398cc1500e0d56a53472d36539975442
+  .a2_pub  {display:none;}
+  .a3_chapeau img {display:none;}
+  .a1_menu img {display:none;}
+  .bricks-mobile-menu-toggle {display: none !important;}
+  h1 { font-size: 10px;}
+  h2 { font-size:50px;}
+  h3 { font-size:17px;}
+  h4 { font-size:11px;}
+  h5 { font-size:25px; }
+  }
+
+  @media screen and (min-width: 480px) {/*no run */
+    .navbar-inverse .navbar-toggler-icon{
+    padding: 50px !important;}
+  }
+
+.navbar-toggler {font-size:70px;} 
+/* 
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+*/
+.custom-toggler .navbar-toggler {
+  border-color: rgb(255,102,203);
+} 
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+.nav-item {
+  font-size: 50px;
+  padding-left: 25px;
+}
+.navbar-toggler-icon {
+       background-image: none;
+   }
+   .navbar-scrollable {
+opacity:1;
+}
+.navbar-toggler-icon:after {
+       content: "\f0c9";
+       font-family: "FontAwesome";
+       font-size: 100px;
+   }
+#navbarSupportedContent {
+<<<<<<< HEAD
+  display:fixed;
+margin-top: 400px;
+margin-left: 100px;
+margin-right: 100px;
+=======
+display: auto;
+margin-left: 100px;
+>>>>>>> 88ff3652398cc1500e0d56a53472d36539975442
+width:1500px;
+border:1px solid blue;
+text-align: right;
+background:var(--bleu);
+opacity:0.5;
+}
+
+
+.a3_chapeau {position:absolute; z-index:1; height:700px; top:2500px; }
+.a3_chapeau_cadre_1 {border:1px solid red; position:absolute; top :0px; left:150px; width:380px; height:250px; background:var(--rouge); color:white;font-size:9px; z-index:1;}
+.a3_chapeau_cadre_2 {border:1px solid red; position:absolute; top :0px; left:800px; width:380px;  height:250px; background:var(--orange); color:white;font-size:9px; z-index:1;}
+
+.a3_veh_rec {position:absolute; top:3000px; background:black; color:white; border:1px solid red;}
+
+.liseret-copyright {
+   float: left;
+    width: 200px;
+    height: 100%;
+    background: black;
+    margin-right: 40px;
+    margin-right: 40px;
+}
+.a4_nous_choisir {background:white; position:absolute; top:3500px;}
+
+  .items-BMW {background:red; color:white; border:1px solid red; width:100px; height:100px;}
+  .items-b{background:blue; color:white; border:1px solid red; width:100px; height:100px;}
+
+<<<<<<< HEAD
+.a5_contact {position:absolue; top:6000px;}
+.header {height:500px; display:fixed;}
+.nav {height:100px;}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+</style>
+<script>
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the header
+var header = document.getElementById("myHeader");
+
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+} 
+</script>  
+
+<body>
+<header class="header">
+<div class="container">
+=======
+
+</style>
+<script>
+document.getElementsByTagName('body')[0].onscroll = function() {
+    console.log("scrolling");
+</script>  
+
+<body>
+<header class="header"><!--  Entête Numéro Téléphone, Adresse, horaires, réseaux sociaux -->
+    <div class="container">
+>>>>>>> 88ff3652398cc1500e0d56a53472d36539975442
+    <table> 
+      <tr>
+      <td>
+      <p style="width:200px;"><h1><b>CLUB&nbsp;AUTO</b></h1></p>
+    </td>
+
+      <td style="width: 200px;"  valign="top">
+                <img  src="images/icone-adresse.png" class="iconContacts img-fluid"  style="width:40px;"/>
+                <p style="float:left;"><h2><b>ADRESSE&nbsp;:</b></h2></p>
+                <p><h3><b>AVENUE CHARLES de GAULLE
+                                75000 PARIS</b></h3></p>
+        </p>
+      </td>
+    
+      <td style="width: 200px;" valign="top">
+                <img src="images/icon-telephone.png" class="iconContacts img-fluid"  style="width:40px;">
+                <p style="float:left;"><h2><b>TELEPHONE&nbsp;:</b></h2></p>
+                <p ><h3><b>01 23 45 67 89<h3></b></h3></p>
+      </td>
+    
+      <td style="width: 500px;"  valign="top">
+              <p><b><h2>OUVERTURE&nbsp;: &nbsp;</h2><h3>Du Lundi au Samedi</h3></p>
+              <p><b><h2>HORAIRES&nbsp;:&nbsp;</h2><h3>De 9h à 17h</h3></b></p>
+      </td>
+    
+      <td><img src="images/facebook.jpg" class="img-fluid iconGAFAM"  style="width:40px;"/>
+      </td>
+    
+      <td style="width: 40px;">
+      </td>
+    
+      <td><img src="images/twitter.jpg" class="img-fluid iconGAFAM" style="width:40px;"/>
+      </td>
+    
+      <td style="width: 200px;">
+      </td>
+  
+    </tr>
+    </table>
+  </div>
+</header>
+
+<<<<<<< HEAD
+<section><div class="nav"><!-- **************  Menu sur background vehicule1.jpg   ****************  -->
+=======
+<section><div class="a1_menu"><!-- **************  Menu sur background vehicule1.jpg   ****************  -->
+>>>>>>> 88ff3652398cc1500e0d56a53472d36539975442
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+      <a class="navbar-brand" href="#!"></a>
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="acueil.html"><h2>ACCUEIL</a></h2>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vehicules-details.html"><h2>VENTE</a></h2>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="location.html"><h2>LOCATION</a></h2>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html"><h2>CONTACT</a></h2>
+          </li>
+        </ul>
+      </div>
+  </nav>
+
+  <img src="images/vehicule1.jpg" class="img-fluid" />
+    <div class="visibledevice" >
+      <img  src="container images/icon-telephone.png" class="iconContacts img-fluid"/>
+        <p><h2><b><span>TELEPHONE : </span></b></h2></p>
+                                <span style="color: var(--blanc);">01 23 45 67 89 </span></b></h3></p>
+        <p style="position:absolute; top:500px; left:20px;">
+                        <b><h1><span style="color: var(--);  position:absolute; top:500px; left:20px;">CLUB AUTO </span>
+                                <span style="color: var(--orange);">LE <br>
+                                       MEILLEUR DE<br>
+                                       L&apos;AUTOMOBILE </span></b></h1>
+        </p>
+    </div>
+
+    <div  class="a2_pub" >
+      <div>
+          <p class="a2_pub" ><h1><span style="color: var(--blanc);"></span><b>CLUB&nbsp;AUTO&nbsp;<span style="color: var(--orange);">LE MEILLEUR   DE L AUTOMOBILE</span></b></h1></p>
+    </div>
+    </div>
+  </section>
+<br><br>
+
+<section><div class="container a2_entretien_clients"><!-- **************  Photos Clients + 2 paragraphe  *******************************  -->
+  <div class="row ">
+    <div class="col-md-6 col-lg-1"></div>
+    <div class="col-md-6 col-lg-5"><img src="images/clients.jpg"  width="100%" class="img-fluid mx-auto d-block"/> </div>
+    <div class="col-md-6 col-lg-5"> 
+        <article>
+        <p  style="margin-top:0;"><h2><b>BIENVENUE CHEZ <span style="color: var(--rouge);">CLUB AUTO</span></b></h2><br></p>
+      
+        <p class="lead id_Lorem"><b><h6><p style="margin-top:0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consequuntur
+                                    ducimus distinctio cumLorem ipsum dolor sit amet consectetur adipisicing elit.</b></h6>
+        </p>
+        
+        <p class="lead"  id="id_Lorem" ><h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consequuntur
+         ducimus distinctio cumLorem ipsum dolor sit amet consectetur adipisicing elit.</p></h6></div>
+        </article>
+
+        <div class="col-md-6 col-lg-1">
+        </div>
+
+        <div class="col-md-6 col-lg-5" >
+            <article>
+            <p  ><h2><b>LE MEILLEUR  DE L&rsquo;AUTOMOBILE</b></h2><br></p>
+            <p class="lead  id_Lorem" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consequuntur
+                        ducimus distinctio cumLorem ipsum dolor sit amet consectetur adipisicing elit. Vero 
+                        consequuntur ducimus distinctio cumLorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Vero consequuntur ducimus distinctio cumLorem ipsum dolor sit amet consectetur 
+                        adipisicing elit.</p><br>
+              </article>
+           <p style="float:left;"><img src="images/valid1.png" style="width:19px;"/> 
+            <p >&nbsp; &nbsp; Lorem ipsum dolor sit amet</p> 
+           
+            <p style="float:left;"><img src="images/valid1.png" style="width:19px;" /> 
+            <p >&nbsp; &nbsp;  Lorem ipsum dolor sit amet</p> 
+           
+            <p style="float:left;"><img src="images/valid1.png"  style="width:19px;" /> 
+            <p >&nbsp; &nbsp;  Lorem ipsum dolor sit amet</p> 
+
+           <p style="float:left;"><img src="images/valid1.png"  style="width:19px;" /> 
+           <p >&nbsp; &nbsp;  Lorem ipsum dolor sit amet</p> 
+
+           <p style="float:left;"><img src="images/valid1.png"  style="width:19px;" > 
+            <p >&nbsp; &nbsp;  Lorem ipsum dolor sit amet</p> 
+              
+          </div>
+
+        <div class="col-md-6 col-lg-5"> <img src="images/entretien.jpg"  width="100%" class="img-fluid mx-auto d-block" />
+        </div>
+
+        <div class="col-md-6 col-lg-1"> 
+        </div>
+</div><!-- fermeture row  -->
+
+</section>
+<br><br>
+
+
+<section><div class="container a3_chapeau" ><!-- **************  Photos Chapeau + 2 paragraphes  *************************  -->
+  <img src="images/chapeau.png" class="float-left img-thumail" class="img-fluid mx-auto d-block"  />
+
+  <div class="row">
+  <div class="col-6 col-md-3">
+  </div>
+
+  <div class="col-6 col-md-3 a3_chapeau_cadre_1">
+  <p ><h2 style="color:white;"><b>Vous souhaitez louer ?</b></h2></p>
+  <p class="lead id_Lorem"  style="margin-left:44px;margin-right:50px;">
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consequuntur
+         ducimus distinctio cumLorem ipsum dolor sit amet consectetur adipisicing elit. Vero 
+         consequuntur ducimus distinctio cumLorem ipsum dolor sit amet consectetur adipisicing 
+         elit. Vero consequuntur ducimus distinctio cumLorem ipsum dolor sit amet consectetur 
+         adipisicing elit. Vero consequuntur ducimus distinctio cumLorem ipsum dolor sit 
+        amet consectetur adipisicing elit. Vero consequuntur ducimus distinctio cumLorem
+        ipsum dolor sit amet consectetur adipisicing elit.</p>
+  </div><!--   cadre1-->
+
+  <div class="col-6 col-md-3  a3_chapeau_cadre_2">
+   <p style="color:white;"><h2><b>Vous souhaitez achetez ?</b></h2></p>
+   <p class="lead id_Lorem  "  style="margin-left:44px;margin-right:50px;">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consequuntur
+          ducimus distinctio cumLorem ipsum dolor sit amet consectetur adipisicing elit. Vero 
+          consequuntur ducimus distinctio cumLorem ipsum dolor sit amet consectetur adipisicing 
+          elit. Vero consequuntur ducimus distinctio cumLorem ipsum dolor sit amet consectetur 
+          adipisicing elit. Vero consequuntur ducimus distinctio cumLorem ipsum dolor sit 
+          amet consectetur adipisicing elit. Vero consequuntur ducimus distinctio cumLorem
+           ipsum dolor sit amet consectetur adipisicing elit.</p>
+  </div>
+
+  <div class="col-6 col-md-3">
+  </div> 
+
+  </div>
+</div>
+</section>
+
+<section><div class="container a3_veh_rec"> <!-- **************  3 Photos Véhicule1 + 3 paragraphes **********************  -->
+  <div class="row">
+    <p style="color:var(--noir);text-align: center; font-size:30px; padding-top:70px; font-family: MontSerrat">
+      <h1><b>VEHICULES RECENTS</b></h1></p>
+    </div>
+
+      <div class="col-6 col-md-3 "><img src="images/vehicule1.jpg" class="img-fluid" />
+        
+      </div>
+      <div class="col-6 col-md-3 "><img src="images/vehicule1.jpg" class="img-fluid" />
+        
+        </div>
+
+      <div class="col-6 col-md-3 items-BMW"><img src="images/vehicule1.jpg" class="img-fluid"  />
+        <p ><h1 style="font-size:15px; border:3px white; width:100px; height:100px;"><b>BMW 535in Navi </b></h1></p>
+        <p  class="items-b"><h1 ><b>5500 €</b></h1></p>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-1"></div>
+  </div>
+  </div>
+
+<div class="container a4_nous_choisir"> <!-- **************  Pourquoi nous choisir ?  *************************************  -->
+  <div class="row" style="font-size: xx-large; text-align: center;"><p><b>Pourquoi nous choisir ?<br><br></b></p>
+
+  <div class="col-md-6 col-lg-3" style="text-align: start;"><img src="images/icon1.png" width="50%" class="icon-nous-choisir  img-fluid">
+      <p style="float:right; text-align: start;font-size:medium;font-weight: bold;">FINANCEMENT</p>
+      <p class="lead id_Lorem" style="margin-left:44px;margin-right:50px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptate eum magni dolor modi possimus. Non unde quod quas! Doloribus mollitia distinctio, blanditiis saepe itaque odit consequatur minima repellendus tenetur!
+      </p>
+  </div>
+  
+  <div class="col-md-6 lg-1 col-lg-3" style="text-align: start;"><img src="images/icon2.png" width="50%" class="icon-nous-choisir img-fluid">
+      <p style="float:right; text-align: start; font-size:medium;font-weight: bold;">R&#xC9;ACTIVIT DE L &rsquo;&#xC9;QUIPE TECHNIQUE</p>
+      <p class="lead id_Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptate eum magni dolor modi possimus. Non unde quod quas! Doloribus mollitia distinctio, blanditiis saepe itaque odit consequatur minima repellendus tenetur!
+      </p>
+  </div>
+  
+  <div class="col-md-6 lg-1 col-lg-3" style="text-align: start;"><img src="images/icon3.png" width="50%" class="icon-nous-choisir  mg-fluid">
+        <p style="float:right;font-size:medium;font-weight: bold;">A L &#xC9;COUTE DE NOTRE CLIENTELE</p>
+        <p class="lead id_Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptate eum magni dolor modi possimus. Non unde quod quas! Doloribus mollitia distinctio, blanditiis saepe itaque odit consequatur minima repellendus tenetur!
+        </p>
+  </div>
+  
+  <div class="col-md-6 lg-1 col-lg-3" style="text-align: start;"><img src="images/icon4.png" width="50%" class="icon-nous-choisir  img-fluid">  
+        <p style="float:right; text-align: start;font-size:medium;font-weight: bold;">SERVICE & MAINTENANCE</p>
+        <p class="lead id_Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptate eum magni dolor modi possimus. Non unde quod quas! Doloribus mollitia distinctio, blanditiis saepe itaque odit consequatur minima repellendus tenetur!
+        </p>
+  </div>
+  <div class="col-6 col-md-3 col-lg-1"></div>
+  </div>
+  </div>
+<<<<<<< HEAD
+  </div>
+  </section>
+
+  <section><div class="container a5_contact"><!-- **************  CONTACTEZ-NOUS ******************************************  -->
+    <div class="row">
+    <div class="col-5"></div>
+    <div class="col-3"  style="text-align:end;color: white;"><p><b><h2>CONTACTEZ-NOUS</h2></b></p></div>
+    <div class="col-4"></div>
+    </div>
+    </div>
+
+    </section>
+    
+    <footer  class="footer text-center text-lg-start bg-body-tertiary text-muted">  
+        <section class="">
+          <div class="a_footer_titre1 container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4"><span style="color: blue;">CLUB&nbsp;</span><span style="color: white;">AUTO&nbsp;</span></h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt cupiditate dolorem, laudantium sed maxime commodi facere iusto, distinctio nesciunt iste accusantium doloremque alias aspernatur consequuntur repellendus perferendis nulla deleniti quidem!
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+          
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4"><span style="color: white;">HORAIRES D OUVERTURE&nbsp;</span></h6>
+                <p class="a_footer_titre2">lundi-Samedi : <span style="color: white;">09:00 - 17:00&nbsp;</span> <br>
+                    Dimanche et jours fériés : <span style="color: var(--blanc);">Fermée</span></p>
+              </div>
+    
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4"><span style="color: white;">NEWSLETTERS&nbsp;</span></h6>
+                <form class="form-wrapper cf">
+                    <input type="text" placeholder="Search here..." required>
+                    <button type="submit"><img src="images/icone-adresse.png" style="width: 27px;" /></button>
+                </form>
+                <p>Inscrivez-vous pour recevoir les dernières offres</p>
+              </div><!-- Grid column -->
+    
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4"><!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4"><span style="color: white;">RESEAUX SOCIAUX&nbsp;</span></h6>
+              </div>
+    
+        </div>	 
+        <div>
+        </section>
+    
+        <!-- Copyright -->
+        <div class="a_footer_href text-center p-4" style="background-color:black;">
+            Copyright © 2021 <a class="text-reset fw-bold" href="index.html" style="text-decoration: none;">Club Auto - Tous drois réservés</a>
+        </div><!-- Copyright -->
+      </footer><!-- Footer -->
+
+=======
+  </section>
+
+>>>>>>> 88ff3652398cc1500e0d56a53472d36539975442
+</body>
+</html>
+
+
+
