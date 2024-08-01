@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // <uniquifier>: Use a uniquifier for the class name
 // <weight>: Use a value from 100 to 900
 
@@ -6,4 +7,14 @@
   font-optical-sizing: auto;
   font-weight: <weight>;
   font-style: normal;
+=======
+// <uniquifier>: Use a uniquifier for the class name
+// <weight>: Use a value from 100 to 900
+
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+>>>>>>> c992dda5f7caf0d0e1c175beb7940d1e518b379b
 }

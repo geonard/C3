@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ignorer les fichiers de configuration d'éditeurs de texte
 .vscode/
 .gitlab-ci.yml
@@ -19,3 +20,6 @@
 /.env
  
  
+=======
+nodes
+>>>>>>> c992dda5f7caf0d0e1c175beb7940d1e518b379b
