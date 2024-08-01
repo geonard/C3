@@ -1,0 +1,175 @@
+.liseret-copyright {
+    width: auto;
+    height: 100%;
+    background:var(--noir);
+    text-align:center;
+    margin-left: 40px;
+    margin-right: 40px;
+ }
+ footer {
+  position:relative;
+  background-color:var(--noir); 
+  margin-top: var(--mt-footer)  !important;
+  color:var(--blanc);
+  top: var(--t-footer);
+  z-index:2 !important;
+}
+ .grid-header {
+     display: grid;
+     grid-template-columns: repeat(12, 1fr);
+     gap: 10px;
+ }
+ .logo-club {
+     margin-top: 70px;
+     grid-column: span 2;
+     margin-top: 20px;
+     transform: translate(-30px, 20px);
+ }
+ .logo-club h1 {
+     color: var(--blanc);
+     font-weight: bold;
+ }
+ .address, .phone, .opening-hours {
+     margin-top: 30px;
+     grid-column: span 3;
+     display: flex;
+     align-items: start;
+ }
+ .address {
+     transform: translateX(-70px);
+ }
+ .phone, .image-container {
+     width: 100%;
+     overflow: hidden; 
+     float: left;  
+ }
+ .phone {
+     transform: translateX(-70px);
+ }
+ .opening-hours {
+     transform: translateX(-150px);
+ }
+ .phone div {
+     display: flex;
+     flex-direction: column; /* Aligne le texte en colonne */
+     justify-content: center; /* Centre le texte verticalement par rapport à l'icône */
+ }
+ .phone div {
+     display: flex;
+     flex-direction: column; /* Aligne le texte en colonne sous l'icône */
+     justify-content: flex-start;
+ }
+ .address img, .phone img {
+     margin-top: 0.5rem;
+     width:45px;
+     height:auto;
+     flex-shrink: 0;
+ }
+ .address h2, .phone h2, .opening-hours h2 {
+     color: var(--orange);
+ }
+ .address h3, .phone h3, .opening-hours h3 {
+     color: var(--blanc);
+     white-space: nowrap;
+ }
+ .social-media {
+     grid-column: span 1;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transform: translateX(-150px);
+ }
+ .social-media img {
+     margin-right: 30px; /* Ajustez la valeur pour ajouter plus ou moins d'espace */
+ }
+ .ms-2 {
+     margin-left: 0.5rem;
+ }
+ .me-2 {
+     margin-right: 0.5rem;
+ }
+
+footer {
+  position:relative;
+  background-color:var(--noir); 
+  margin-top: var(--mt-footer)  !important;
+  color:var(--blanc);
+  top: var(--t-footer);
+  z-index:2 !important;
+}
+
+.navbar-custom2 {
+  background-color:yellow;
+}
+@media (max-width: 767px) { 
+  footer {
+  position:absolute;
+  text-align: center;
+  padding: 10px 0;
+  margin-top:500px;
+} 
+}
+
+/* styles footer */
+input[type=email],
+textarea {
+  width: 100%;
+  max-width: 250px;
+  border: 2px solid #72ae00;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+input[type=text],
+input[type=email] {
+  height: 35px;
+  width: 230px;
+}
+
+textarea {
+  height: 75px;
+  font-family: "MontSerrat";
+  font-size: 13px;
+  line-height: 1.1;
+}
+
+.input-icone {
+  display: flex;
+  align-items: stretch;
+}
+
+.icon-input input {
+  flex-grow: 1;
+  max-height: 100%;
+}
+
+
+.input-icone input[type=text],
+input[type=email],
+textarea {
+  padding-left: 35px;
+}
+
+.input-icone {
+  position: relative;
+}
+
+.input-icone i {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  width: 35px;
+  padding: 9px 8px;
+  color: rgb(128, 0, 255);
+}
+
+input[type=email]:hover {
+  background: #f2f2f2;
+}
+
+textarea:hover {
+  background: #f2f2f2;
+}

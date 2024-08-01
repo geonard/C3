@@ -1,0 +1,125 @@
+:root {
+    --space-row:70px;
+    --w-input: 200px;
+    --h-input: 50px; /* Hauteur standard des inputs */
+    --space-row: 15px; /* Espace entre les lignes */
+    --w-message:250px;
+    --h-message: calc(var(--h-input) + var(--space-row) + var(--h-input) + var(--space-row) + 30px);
+}
+
+.container-form {
+    position:relative;
+
+}
+.content-form {
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top:200px;
+    height:500px;
+    padding-left:150px;
+    display: flex;
+    width:80%;
+    background-color:white;
+    border: 1px solid black;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width:1000px;
+    flex-flow: column wrap;
+    justify-content:center;
+    grid-template-columns: 1fr 1fr 1fr;
+    z-index: 1000;
+}
+
+.container-form .title-form {
+    text-align: left; /* Aligne le texte du titre à gauche */
+    margin-bottom: 20px; /* Ajoute de l'espace en dessous du titre */
+    font-size: 1.5em; /* Ajuste la taille de la police si nécessaire */
+    font-weight: bold; /* Assure que le texte est en gras */
+    color: blue; /* Ajuste la couleur du texte si nécessaire */
+    padding-left: 20px; /* Ajoute de l'espace à gauche du titre */
+}
+
+.c1_menu {
+    padding-top:var(--h-header);
+    width:100%;
+}
+.c1_menu a {
+    vertical-align: top;
+    color: black; 
+    text-decoration: none; 
+}
+.c1_menu img {
+    width: 100%; /* Assure que l'image prend toute la largeur du conteneur */
+    height: auto; /* Assure que l'image garde ses proportions */
+
+}
+.custom-margin {
+    margin-top:70px;
+}
+.custom-margin .form-control {
+    margin-bottom: 15px; /* Adjust the value as needed */
+}
+
+.space-row {
+    height:var(--space-row);
+}
+.spaced-input {
+    margin-bottom: 45px;
+}
+label {
+    font-size:20px;
+}
+.submit-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+.nom, .prenom, .email, .telephone {
+    background-color:rgb(241, 235, 235);
+    width:var(--w-input);
+    height:var(--h-input);
+}
+.message { 
+    background-color:rgb(241, 235, 235);
+    width: var(--w-message);
+    height: var(--h-message);
+}    
+button[type="submit"]  {
+    background:rgb(88, 163, 237); 
+    color:white; 
+    width:170px; 
+    height:50px;
+}
+
+@media screen and (min-width: 980px){
+    textarea {width:200px;}
+}
+@media screen and (min-width: 767px){
+    body {width:100; margin-left:5px;}
+    .container-fluid {
+        width:100%;
+        margin-left:5px;
+        left:0;
+    }
+
+    .prenom {
+        grid-column: 1 / 2;
+    }
+    .nom {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    .message {
+        grid-column: 3 / 3;
+        grid-row: 1 / 3;
+    }
+    .email {
+        grid-column : 2 / 3;
+    }
+    .telephone {
+        grid-column : 2 / 3;
+        grid-row: 2 / 3;
+    }
+}
+

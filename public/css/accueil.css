@@ -1,0 +1,577 @@
+
+:root {
+    --marge-top: 0px;
+    --marge-left: 100px;
+    --marge-right: 100px;
+      /* taille police */
+    --f-s-primary0: 19px;
+    --f-s-primary: 16px;
+    --f-s-secondary: 12px;
+    --f-s-tertiary: 11px;
+    --f-s-a2-primary: 20px;
+
+/* position des éléments dans le html */
+--h-entretien_clients: 1000px; 
+
+--mt-footer:-200px;
+
+--t-a2_pub: 600px;
+--h-a2_pub: 70px;  
+--t-a3_entretien_clients:calc(var(--t-a2_pub)+var(--h-a2_pub));
+
+--h-a4_chapeau: 200px; 
+
+--t-a4_chapeau_text_1: 0px; 
+--l-a4_chapeau_text_1: 170px; 
+--w-a4_chapeau_text_1: 400px; 
+--h-a4_chapeau_text_1: 200px; 
+
+--t-a4_chapeau_text_2: 0px; 
+--l-a4_chapeau_text_2: 640px; 
+--w-a4_chapeau_text_2: 400px; /* point interrogation ne rentrait pas, ajout de 50px ?   AVOIR */
+--h-a4_chapeau_text_2: 200px; 
+
+--h-veh_rec: 1000px;
+--h-nous_choisir: 400px; 
+
+--h-contact_nous: 50px; 
+
+--h-veh_3: 700px; 
+
+--h-a2_pub:80px;
+--mt-a2_pub:-500px;
+--mt-a3_entretien_clients:clac(var(--mt-a2_pub)+var(--h-a2_pub));
+--t-veh_3_cadre:280px;
+--l-veh_3_cadre:300px;
+--w-veh_3_cadre:500px;
+--h-veh_3_cadre:200px;
+
+--h-footer:1000px;
+}
+/* ************************************************************gestion des couleurs */
+.b-orange {background-color:var(--orange);}
+.b-noir {background-color:var(--noir);}
+.b-bleu {background-color:var(--bleu);}
+.b-rouge {background-color:var(--rouge);}
+.b-marron {background-color:var(--marron);}
+.b-blanc {background-color:var(--blanc);}
+
+.c-orange {color:var(--orange);}
+.c-noir {color:var(--noir);}
+.c-bleu {color:var(--bleu);}
+.c-rouge {color:var(--rouge);}
+.c-marron {color:var(--marron);}
+.c-blanc {color:var(--blanc);}
+
+/* **************** CSS général  ***********************************************/
+@namespace url(http://www.w3.org/TR/2008/REC-xml-20081126/);
+@font-face {
+  font-family: MontSerrat;
+  src:
+    local(Montserrat, Open_Sans),
+  url(Montserrat-ExtraBold.ttf) format("ttf"),
+  url(Open_Sans.ttf) format("ttf");}
+
+
+
+/* ****************  Lorem  ***********************************************************/
+.id_lorem {  
+  text-align: start;
+  font-weight: bold;  
+  top:0; margin-top:0; padding-top:0; color: white;  }  
+
+
+.Lorem {   
+  padding-left : 10px; margin-right:100px;
+
+}  
+
+/* ***********************************************************************************/
+.icon-nous-choisir  {width:50px; height:50px; }
+
+.space-between-sections {
+  height: 50px; /* Ajustez cette valeur selon vos besoins */
+}
+
+.section {
+  flex: 1; 
+  margin-bottom: 20px; /* Espacement entre les sections */
+  width:100%;
+}
+.content {
+  display: flex;
+  flex: 1; /* Fait en sorte que le contenu s'étende pour remplir l'espace disponible */
+  justify-content: space-between; /* Distribue les sections également */
+  gap: 20px; /* Espacement entre les sections */
+  padding: 20px;
+}
+/* Style pour l'image */
+.image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  /* Centrer l'image horizontalement */
+}
+
+.bg-blue-light-opacity {
+  background-color: rgba(173, 216, 230, 0.7); /* light blue with 70% opacity */
+}
+
+.container-fluid img {
+  width: 100%; /* L'image prendra toute la largeur du conteneur */
+  overflow: hidden;
+}
+.a1_menu {
+  width:100%;
+  padding-top: var(--h-header); 
+}
+.a1_menu a {
+   vertical-align: top;
+   color: black; 
+   text-decoration: none; 
+}
+
+
+.a2_pub {
+  position: relative;
+  display: flex;
+  height:var(--h-a2_pub);
+  margin-top: var(--mt-a2_pub)  !important;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 50%; /* Centre verticalement */
+  font-size:40px;
+  text-align:center;
+  z-index:8000;
+  background-color:black;
+}
+.a2_pub img {
+  width: 100%;
+  height: auto;
+}
+
+.a3_entretien_clients {
+  position: relative;
+ /* Ajustement de la position pour être en dessous de .a2_pub */
+  margin-top: var(--mt-a3_entretien_clients)  !important;
+  left: 0px; /* Marge à gauche pour l'espacement horizontal */
+  height:100%;
+  right: 50px; /* Marge à droite pour l'espacement horizontal */
+  background-color: white;
+  z-index: 2; /* Assurez-vous que cet élément est en dessous de .a2_pub */
+}
+.a3_entretien_clients h2 {
+  font-size:2.5vm;
+  font-weight:bold;
+  color:black;
+  margin-top:0; 
+}
+.a3_entretien_clients p {
+  font-size: 1vm;
+  color:black;
+}
+.a3_entretien_clients h2 span {
+  color:var(--orange-entete);
+}
+
+.a4_chapeau {
+  display: block;
+}
+.a4_chapeau_text_1, .a4_chapeau_text_2 {
+  position:relative;
+  margin-top: -var(--h-a4_chapeau);
+  width:var(--w-a4_chapeau_text_2);
+  height:var(--h-a4_chapeau_text_2);
+  color: white;
+  font-size: 16px;
+}
+.a4_chapeau_text_1, .a4_chapeau_text_2 {
+  margin-bottom: 10px;
+}
+.a4_chapeau_text_1 h1, .a4_chapeau_text_2 h1 {
+  font-weight: bold;
+  font-size: 24px;
+  color: black;
+}
+.a4_chapeau_text_1 {
+  left:var(--l-a4_chapeau_text_1);
+  background-color: var(--orange); /* Utilisation d'une variable CSS personnalisée */
+}
+.a4_chapeau_text_2 {
+  left:var(--l-a4_chapeau_text_2);
+  background-color: var(--rouge); /* Utilisation d'une variable CSS personnalisée */
+}
+.a4-lorem, .a3-lorem .a6-lorem, .a8-lorem {
+  font-size: 17px;
+  line-height: 1.6;
+}
+.a6-lorem {color:red;}
+
+.a5_veh_rec {
+  position: relative;
+  vertical-align: top;
+  text-align: center;
+  height: auto; 
+  background-color: black; 
+  padding-bottom: 100px;
+  margin-left:250px;
+  margin: 0 10px;
+  border-top: 30px solid black;
+  clear: both; /* Assurez-vous qu'il n'y a pas d'éléments flottants à gauche ou à droite */
+}
+.title-veh_rec {
+  font-size:2.5vw;
+  font-weight:bold;
+  text-align:center;
+  color:white;
+  background-color:black;
+  border-top: 30px solid black;
+  margin-bottom: 30px;
+  padding-bottom:5px;
+}
+.a5_veh_rec h1 {
+  font-weight:bold;
+  font-size: 1vw;
+ }
+
+.a5_veh_rec span {
+  text-align: center;
+  background-color:var(--bleu);
+  font-weight: bold;
+  font-size: 1vw;
+  padding-left: 10px;
+}
+
+.promo-text {
+  position:relative;
+  text-align: center; /* Pour centrer horizontalement */
+  border:1px solid white;
+  background-color:var(--noir);
+  color:white;
+  font-size:18px;
+  vertical-align: middle;
+  padding:20px;
+  height:90px;
+}
+.promo-text .first-word, 
+.promo-text .second-word {
+    margin: 0; /* Enlever les marges par défaut */
+    padding: 0; /* Enlever les espacements par défaut */
+}
+.promo-text div {
+  font-weight:bold;
+}
+.promo-text .tab-words  {
+  position: absolute;
+  display: inline-block; /* Permet d'afficher les mots sur le premier mot  */
+  vertical-align: middle;/* Pour aligner verticalement par rapport au prmier mot */
+  background-color: var(--bleu);
+  color: white;
+  right:0px;
+  padding-left:5px;
+  padding-right:10px;
+}
+.promo-text:nth-of-type(3) .tab-words div:nth-child(1) {
+  text-decoration: line-through;
+}
+
+.promo-text .first-word {
+  position:absolute;
+  left:0;
+  top:0;
+  display: inline-block;/* Permet de centrer le mot sur une ligne */
+  margin-right: 20px; /* Espace entre les mots */
+}
+.promo-text .second-word {
+  position:absolute;
+  left:0;
+  top:30px;
+}
+
+.a6_nous_choisir {
+  padding: 30px 0; /* Ajustez le padding si nécessaire */
+}
+.a6_nous_choisir .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+.a6_nous_choisir .row {
+  margin-left: 0;
+  margin-right: 0;
+  gap: 20px; 
+}
+.a6_nous_choisir .col-gap {
+  padding-left: 15px; /* Ajustez cette valeur selon vos besoins */
+  padding-right: 15px; /* Ajustez cette valeur selon vos besoins */
+}
+.a6_nous_choisir .col-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.a6_nous_choisir .d-flex {
+  display: flex;
+  align-items: flex-start; /* Aligne les éléments au début de la ligne */
+}
+ .a6_nous_choisir {
+  position:relative;
+  text-align:center;
+  vertical-align: top;
+  background-color:white;
+  height:auto;
+ }
+ .a6_nous_choisir h1 {
+  font-size:45px;
+  font-weight: bold;
+  text-align: center;
+  color:var(--noir);
+}
+.a6_nous_choisir div div h2 {
+  text-align: start;
+  font-size: 20px;
+  font-weight: bold;
+  color:black;
+  text-align: center;
+}
+.a6_nous_choisir div div h3 {
+  font-size: 12px;
+  color:var(--gris);
+}
+
+.a7_contact_nous {
+  text-align: center; /* Centre le contenu à l'intérieur du conteneur */
+  margin-bottom:5px;
+}
+.a7_contact_nous h1 {
+  position: relative;
+  border: 1px solid var(--bleu);
+  vertical-align: top;
+  border-radius: 5px;
+  padding: 10px 20px; /* Ajustez les valeurs de padding selon vos besoins */
+  font-size: 2rem; /* Ajustez la taille de la police selon vos besoins */
+  font-weight:bold;
+  background-color: blue;
+  color: white;
+  display: inline-block; /* Utilisez inline-block pour ajuster la taille de la bordure autour du texte */
+  margin: auto; /* Centre l'élément horizontalement */
+}
+.a8_veh_3 {
+  position:relative;
+}
+.a8_veh_3 img {
+  z-index:1;
+}
+.a8_veh_3-text {  
+    position:absolute; 
+    z-index:9999; 
+    top:var(--t-veh_3_cadre);
+    left: var(--l-veh_3_cadre);
+    width: var(--w-veh_3_cadre);
+    height: auto;
+    transform: translate(-50%, -50%);
+    background-color:var(--orange);
+    color:black;
+    padding: 10px;
+    margin: 0;
+  }
+.a8_veh_3-text h1 span:first-of-type {
+  color:var(--noir);
+  font-weight:bold;
+  font-size: 2.5vw;/* Taille de police responsive */
+}
+.a8_veh_3-text h1 span:last-of-type {
+  color: white;
+  font-weight:bold;
+  font-size: 2.5vw;
+}
+.a8_veh_3-text h2 p {
+  color: white;
+  font-size: 1.5vw; /* Taille de police responsive */
+}
+
+
+
+
+
+/* Ajustez le titre en fonction de la taille de l'écran */
+@media (max-width: 767px) {
+  html, body  {
+    margin:0;
+    padding:0;
+   }
+   body { 
+    width:100%;
+    padding-top: 100px; 
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+   .container-fluid img {
+    width: 100%; /* Redimensionne les images pour s'adapter à la largeur de l'écran */
+    height:auto;
+  }
+  .container-fluid {
+    width: 100%;
+    padding: 0x; /* Ajustez le padding pour éviter le débordement */
+    margin: 0px;
+  }
+  .hamburger-menu {
+    display: inline-block; /* Assure que le bouton est visible */
+    display:block;
+}
+  .a1_menu {
+    position:fixed;
+    top:0;
+    background-color:black;
+    z-index: 1040; /* Assurez-vous que c'est inférieur à celui du bouton hamburger */
+  }
+  .a1_menu .navbar {
+    background-color:black;
+  }
+  
+  .d-flex {
+    display: flex; /* Utilise Flexbox pour aligner les éléments */
+    align-items: flex-start; /* Aligne verticalement au centre */
+}
+.text-container img {
+  width:30px; 
+  height:30px;
+}
+.me-2 {
+    margin-right: 0.5rem; /* Espace entre l'icône et le texte */
+}
+  .a1-mobile-text {
+    margin-top: 56px; /* Ajustez la marge-top pour compenser la hauteur de a1_menu */
+    padding: 20px; /* Ajustez le padding selon vos besoins */
+    height:auto;
+    text-align: start;
+    background: black; /* Assurez-vous que le fond est visible */
+  }
+  .a1-mobile-text  h1 { 
+    margin-top: 70px;
+    font-size:40px;
+    font-weight:bold;
+  }
+  .a1-mobile-text  h2 { 
+    font-size:28px;
+    color:var(--orange);
+  }
+  .a1-mobile-text h3 {
+    font-size:28px; 
+    color:var(--blanc);
+    font-weight:bold;
+  }
+  .a2_pub {display:none !important;}
+  .a5_veh_rec .col-12.col-md-3 {
+    padding:0;
+  }
+  .a5_veh_rec .container img {
+    left: 0;
+  }
+  .a5_veh_rec .col-12 {
+    flex: 0 0 100%; /* Désactive la flexibilité et force la largeur à 100% sur mobile */
+    max-width: 100%; /* Assure que la largeur maximale est de 100% */
+  }
+  .a5_veh_rec .img-fluid {
+    margin-left: 0;
+  }
+  .title-veh_rec {
+      font-size: 1.5rem; /* Réduit la taille du texte pour les petits écrans */
+      margin-bottom: 20px; /* Ajuste l'espacement sous le titre */
+      text-align:center;
+  }
+
+  button {z-index:9999; display:block; } /* hamburger */
+  header {
+    position: relative;
+    display: none !important; /* Cela cache complètement le header, vérifiez si c'est votre intention */
+}
+
+.custom-image {display:none;}
+.a3_entretiens {
+    padding-top: 120px; /* Adjust to ensure it's not covered by the fixed navbar */
+  }
+ .a3_entretien_clients img {
+   width:100%; height:auto; display:block;}
+ .a3_entretien_clients h1 {
+  margin-left:10px;
+  text-align: start;
+  font-size:2.5vw;}
+.a3_entretien_clients h2 {
+  margin-left: 10px;
+  text-align: start;
+  font-size: 2.5vw;
+}
+.a3_entretien_clients h3 {
+  margin-left:44px;
+  margin-right:50px;
+}
+
+/* Section principale */
+.a5_veh_rec {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante */
+  margin: 0; /* Enlève les marges */
+  padding: 0; /* Enlève les espacements */
+}
+
+/* Élément individuel pour chaque véhicule */
+.a5_veh_rec-item {
+  flex: 1 0 100%; /* Chaque élément occupe toute la largeur en mode mobile */
+  padding: 0; /* Enlève les espacements internes */
+  position: relative;
+  box-sizing: border-box; /* Assure que padding et bordure sont inclus dans la largeur totale */
+}
+
+.a5_veh_rec h1 {
+  margin-left:130px;
+  font-size:30px;
+}
+.a6_nous_choisir div div h2 {
+  font-size:1.5em;
+  font-weight:bold;
+}
+.a6_nous_choisir div div h3 {
+  color:black;
+  font-size:1em;
+}
+
+
+.a8_veh_rec {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: relative;
+}
+.a8_veh_rec img {
+  position:relative;   
+  z-index:8888;
+  align-items: start;
+}
+.a8_veh_3-text {
+  position: absolute;
+  left:0;
+  transform: none;
+  padding:10px;
+  width:100%;
+  z-index:9999;
+}
+.a8_veh_3-text h1 span {
+  margin-bottom: 5px; /* Ajuste l'espacement pour les mobiles */
+}
+
+footer {position:absolute;
+  text-align: center;
+  padding: 10px 0;
+  margin-top:500px;
+}
+}
+
+ 
+
+
+       
+
+
+  
+
+    

@@ -1,0 +1,116 @@
+:root {
+  --mt-items-header: 20px;
+  --p-header: 50px;
+}
+
+body, html {
+  overflow-x: hidden;
+}
+
+header h1 {
+  font-size: 30px;
+  color: var(--rouge);
+  margin-left: 0; /* Ajusté pour aligner à gauche */
+  font-family: "MontSerrat";
+  display: flex;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+header h2 { 
+  font-size: 12px;
+  color: var(--rouge);
+}
+
+#dynamic-header h3 { 
+  font-size: 15px; 
+  color: var(--blanc);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  height: auto;
+  justify-content: center;
+  background-color: var(--noir);
+}
+
+.address-text p {
+  line-height: 1.5; 
+}
+
+.phone-link {
+  color: inherit; 
+  text-decoration: none; 
+}
+
+.phone-link p {
+  margin: 0; 
+}
+
+.grid-header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* Utiliser 12 colonnes pour la grille */
+  gap: 10px;
+}
+
+.logo-club {
+  grid-column: span 2;
+  transform: translate(-60px, 20px); /* Ajuster la valeur pour déplacer le logo plus à gauche */
+}
+
+.address, .phone, .opening-hours {
+  margin-top: 30px;
+  display: flex;
+  align-items: start;
+  grid-column: span 3; /* Ajuster selon vos besoins */
+}
+
+.address {
+  transform: translateX(-70px); /* Ajuster la valeur pour déplacer l'adresse */
+}
+
+.phone {
+  transform: translateX(-70px); /* Ajuster la valeur pour déplacer le téléphone */
+}
+
+.opening-hours {
+  transform: translateX(-70px); /* Ajuster la valeur pour déplacer les horaires d'ouverture */
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-media img {
+  margin-right: 50px !important; /* Espace de 90px entre les icônes */
+}
+
+.social-media img:last-child {
+  margin-right: 0  !important; /* Pas d'espace après la dernière icône */
+}
+
+
+header .iconGAFAM { 
+  width: 30px !important;
+  height: auto;
+  margin-top: var(--mt-items-header);
+}
+
+header .iconContacts { 
+  top: 0; 
+  width: 50px !important;
+  height: auto; 
+  margin-top: var(--mt-items-header);
+}
+
+.ms-2 {
+  margin-left: 0.5rem;
+}
+
+.me-2 {
+  margin-right: 0.5rem;
+}
