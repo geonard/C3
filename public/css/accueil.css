@@ -21,15 +21,15 @@
 
 --h-a4_chapeau: 200px; 
 
---t-a4_chapeau_text_1: 0px; 
---l-a4_chapeau_text_1: 170px; 
---w-a4_chapeau_text_1: 400px; 
---h-a4_chapeau_text_1: 200px; 
+--t-a4_chapeau-text1: 0px; 
+--l-a4_chapeau-text1: 170px; 
+--w-a4_chapeau-text1: 400px; 
+--h-a4_chapeau-text1: 200px; 
 
---t-a4_chapeau_text_2: 0px; 
---l-a4_chapeau_text_2: 640px; 
---w-a4_chapeau_text_2: 400px; /* point interrogation ne rentrait pas, ajout de 50px ?   AVOIR */
---h-a4_chapeau_text_2: 200px; 
+--t-a4_chapeau-text2: 0px; 
+--l-a4_chapeau-text2: 640px; 
+--w-a4_chapeau-text2: 400px; /* point interrogation ne rentrait pas, ajout de 50px ?   AVOIR */
+--h-a4_chapeau-text2: 200px; 
 
 --h-veh_rec: 1000px;
 --h-nous_choisir: 400px; 
@@ -197,30 +197,33 @@ margin-right: 100px;
 
 .a4_chapeau {
   display: block;
-}
-.a4_chapeau_text_1, .a4_chapeau_text_2 {
   position:relative;
-  margin-top: -var(--h-a4_chapeau);
-  width:var(--w-a4_chapeau_text_2);
-  height:var(--h-a4_chapeau_text_2);
+}
+.a4_chapeau-text1, .a4_chapeau-text2 {
+  position:absolute;
+  top: var(--t-a4_chapeau-text2);
+  width:var(--w-a4_chapeau-text2);
+  height:var(--h-a4_chapeau-text2);
   padding: 20px;
   color: white;
   font-size: 16px;
 }
-.a4_chapeau_text_1, .a4_chapeau_text_2 {
+.a4_chapeau-text1, .a4_chapeau-text2 {
   margin-bottom: 10px;
 }
-.a4_chapeau_text_1 h1, .a4_chapeau_text_2 h1 {
+.a4_chapeau-text1 h1, .a4_chapeau-text2 h1 {
   font-weight: bold;
   font-size: 24px;
   color: black;
 }
-.a4_chapeau_text_1 {
-  left:var(--l-a4_chapeau_text_1);
+.a4_chapeau-text1 {
+  position:absolute;
+  left:var(--l-a4_chapeau-text1);
   background-color: var(--orange); /* Utilisation d'une variable CSS personnalisée */
 }
-.a4_chapeau_text_2 {
-  left:var(--l-a4_chapeau_text_2);
+.a4_chapeau-text2 {
+  position:absolute;
+  left:var(--l-a4_chapeau-text2);
   background-color: var(--rouge); /* Utilisation d'une variable CSS personnalisée */
 }
 .a4-lorem, .a3-lorem .a6-lorem, .a8-lorem {
@@ -448,23 +451,27 @@ footer {
     margin: 0px;
 
   }
-  .hamburger-menu {
-    display: inline-block; /* Assure que le bouton est visible */
-    display:block;
-}
-  .a1_menu {
-    position:fixed;
-    top:0;
-
-    background-color:black;
-    z-index: 1040; /* Assurez-vous que c'est inférieur à celui du bouton hamburger */
-  }
-  .a1_menu .navbar {
-    background-color:black;
-  }
   .navbar-toggler {
-    z-index: 1050
+    margin-left: auto;
+}
+
+/* Personnalisation additionnelle de la barre de navigation */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+}
+  .a1_menu .navbar .navbar-toggler {
+    display:block;
+    background-color:black;
   }
+  .navbar-collapse {
+    display: none; /* Cache le menu étendu par défaut */
+}
+.navbar-toggler {
+    display: block; /* Affiche le bouton hamburger */
+    z-index: 1050;
+}
   .d-flex {
     display: flex; /* Utilise Flexbox pour aligner les éléments */
     align-items: center; /* Aligne verticalement au centre */

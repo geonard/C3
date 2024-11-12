@@ -101,7 +101,67 @@
    body { 
     width:100%;
     overflow-x: hidden; /* Empêche le défilement horizontal */
+  }
+  .navbar-toggler {
+    margin-left: auto;
 }
+
+/* Personnalisation additionnelle de la barre de navigation */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+}
+
+/* Optional: Si vous voulez que le logo reste à gauche, sinon il se recentrera */
+.navbar-brand {
+    margin-right: auto;
+}
+/* Personnaliser la couleur de l'icône hamburger */
+.navbar-toggler-icon {
+  background-image: none; /* Retire l'icône par défaut */
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: #ffffff; /* Change la couleur ici */
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Crée les trois lignes du hamburger */
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: blue; /* Change la couleur ici */
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
+/* Changer la couleur du hamburger au survol */
+.navbar-toggler:hover .navbar-toggler-icon,
+.navbar-toggler:focus .navbar-toggler-icon {
+  background-color: #ff0000; /* Changer la couleur au survol ici */
+}
+
+.navbar-toggler:hover .navbar-toggler-icon::before,
+.navbar-toggler:focus .navbar-toggler-icon::before,
+.navbar-toggler:hover .navbar-toggler-icon::after,
+.navbar-toggler:focus .navbar-toggler-icon::after {
+  background-color: #ff0000; /* Changer la couleur au survol ici */
+}
+
    .container-fluid img {
     width: 100%; 
     height:auto;
@@ -114,8 +174,11 @@
   .l1-mobile-text {
     margin-top: 0px; /* Ajustez la marge-top pour compenser la hauteur de a1_menu */
     padding: 0px; /* Ajustez le padding selon vos besoins */
-    height:200px;
+    height:auto;
+    padding-top:10px;
+    padding-bottom:10px;
     text-align: start;
+    color:white;
     background-color: black; /* Assurez-vous que le fond est visible */
 }
   .l1-mobile-text img {

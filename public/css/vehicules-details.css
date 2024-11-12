@@ -1,0 +1,121 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 300vh; /* Assure que le body prend au moins la hauteur de la fenêtre */
+  box-sizing: border-box;
+}
+.container-fixed {
+  max-width: 1400px; /* Largeur maximale fixe */
+  width: 100%; /* Utiliser toute la largeur disponible jusqu'à max-width */
+  margin: 0 auto; /* Centrer horizontalement */
+  margin-left:100px;
+}
+.container-fluid, .container-fixed {
+  box-sizing: border-box;
+}
+.navbar-custom1 {
+  background-color: white;
+}
+
+.section-container {
+  padding-top:210px;
+}
+.section-container .navbar-custom1 .nav-link {
+  color: gray;
+  font-size:12px;
+}
+
+.section-container .navbar-custom1 .nav-link:hover {
+  color: #e9ecef;
+}
+
+.section-container .navbar-custom1 .nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px; /* Espacement entre le texte et la ligne */
+}
+
+.section-container .navbar-custom1 .nav-link::after {
+  content: "";
+  position: absolute;
+  left: -10px; /* Ajuster pour centrer la ligne sous le texte */
+  bottom: 0; /* Position de la ligne sous le texte */
+  width: calc(100% + 20px); /* Ajuster la longueur de la ligne */
+  height: 2px; /* Épaisseur de la ligne */
+  background-color: black; /* Couleur de la ligne */
+  z-index: 1; /* Placer la ligne derrière le texte */
+  transition: width 0.3s ease; /* Animation pour le changement de largeur */
+}
+.navbar-custom1 .nav-link.active::after {
+  width: 800%; 
+}
+.navbar-custom1 .nav-link:hover::after {
+  width: 300%; /* La ligne est plus longue au survol */
+}
+
+
+.section-container2 {
+  margin-top:100px;
+}
+.l1_menu {
+  position: fixed;
+}
+
+.l1_menu #dynamic-navbar {
+  margin-top: var(--h-header); /* Décalage basé sur la hauteur du header */
+}
+
+/* Style pour l'image du véhicule */
+.img-vehicule {
+  text-align: center; /* Centrer le texte et l'image */
+}
+
+.img-vehicule .img-vehicule-title {
+  font-size: 1.5em;
+  font-weight:bold;
+  color:black;
+  margin-top:100px;
+  display: flex;
+  align-items: left;
+}
+
+.img-vehicule img {
+  max-width: 100%;
+  height: auto; /* Maintenir les proportions de l'image */
+}
+
+.content-lorem img {
+  vertical-align: middle; /* Aligner les images avec le texte */
+  margin-right: 10px; /* Espacement à droite des images */
+}
+.section-container2 .navbar-custom2 {
+  margin-top:600px;
+  z-index:1000;
+  background-color:yellow;
+}
+  .navbar {
+    border: 2px solid red; /* Bordure rouge pour déboguer */
+    display:block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-menu1 .menu ul {
+      flex-direction: column; /* Disposer les éléments en colonne sur petits écrans */
+  }
+
+  .custom-menu1 .menu ul li {
+      margin-right: 0; /* Supprimer l'espacement à droite des éléments de la liste */
+      margin-bottom: 10px; /* Espacement entre les éléments de la liste */
+  }
+
+  .custom-menu2 .working-with-me {
+      flex-direction: column; /* Disposer les éléments en colonne sur petits écrans */
+  }
+
+  .custom-menu2 .working-with-me .list-group-item {
+      margin-right: 0; /* Supprimer l'espacement à droite des éléments de la liste */
+      margin-bottom: 10px; /* Espacement entre les éléments de la liste */
+  }
+}
